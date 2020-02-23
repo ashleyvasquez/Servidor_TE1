@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Servidor.h"
+#include "Grafo.h"
 
     Servidor *server;
 
@@ -18,6 +19,8 @@
 
     int main(int argc, char *argv[]) {
 
+        Grafo Ografo;
+        Ografo.Dijkstra();
 
         server = new Servidor;
         pthread_t hiloServer;

@@ -22,6 +22,8 @@ struct dataSocket{
     int descriptor;
     sockaddr_in info;
 };
+
+
 class Servidor {
 public:
     Servidor();
