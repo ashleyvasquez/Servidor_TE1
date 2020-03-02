@@ -71,6 +71,7 @@ void * Servidor::controladorCliente(void *obj)
                 break;
         }
         cout << "Cliente: " << mensaje << endl;
+
     }
 
     close(data->descriptor);

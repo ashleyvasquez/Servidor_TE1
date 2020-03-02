@@ -172,7 +172,7 @@ void Grafo::MostrarCamino (unsigned s, unsigned f, vector <unsigned> &pred) {
     if (f != s) {
         MostrarCamino (s, pred[f], pred);
     }
-    cout << f+1 << " -> ";
+    cout << f+1 << " <- ";
 }
 
 void Grafo::MostrarCamino (unsigned s, int i, vector<unsigned> &pred, vector<int> &d) {
@@ -181,7 +181,7 @@ void Grafo::MostrarCamino (unsigned s, int i, vector<unsigned> &pred, vector<int
     cout << " - El camino desde " << s + 1 << " al nodo " << i+1 << " es: " << i+1;
 
     do {
-        cout << " -> " << pred[i] + 1;
+        cout << " <- " << pred[i] + 1;
         i = pred[i];
     } while (pred[i] != i);
 

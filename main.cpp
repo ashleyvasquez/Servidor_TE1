@@ -1,40 +1,22 @@
 #include <iostream>
+#include <QApplication>
 #include "Servidor.h"
 #include "Grafo.h"
+#include "Window.h"
 
-    Servidor *server;
+using namespace std;
+Window * window;
 
-
-    void * serverRun(void *)
-    {
-        try{
-            server->run();
-        }catch(string ex)
-        {
-            cout << ex;
-        }
-
-        pthread_exit(NULL);
-    }
 
     int main(int argc, char *argv[]) {
 
-        Grafo Ografo;
-        Ografo.Dijkstra();
+        QApplication a(argc, argv);
+        window = new Window();
+        window->show();
 
-        server = new Servidor;
-        pthread_t hiloServer;
-        pthread_create(&hiloServer,0,serverRun,NULL);
-        pthread_detach(hiloServer);
-
-
-        while (1) {
-            string mensaje;
-            cin >> mensaje;
-            server->setMensaje(mensaje.c_str());
-        }
+       // Grafo Ografo;
+        //Ografo.Dijkstra();
 
 
-        delete server;
-        return 0;
+        return a.exec();
     }
