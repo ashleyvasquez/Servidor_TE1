@@ -4,6 +4,7 @@
 
 #include "Servidor.h"
 
+
 Servidor::Servidor()
 {
 }
@@ -70,14 +71,18 @@ void * Servidor::controladorCliente(void *obj)
             if(bytes < 10)
                 break;
         }
-        cout << "Cliente: " << mensaje << endl;
+            cout  << mensaje << endl;
+        return (void *) mensaje.c_str();
+        }
 
-    }
 
     close(data->descriptor);
     pthread_exit(NULL);
 }
 
+string Servidor::getmsj(const char){
+
+}
 
 void Servidor::setMensaje(const char *msn) {
     for (unsigned int i = 0; i < clientes.size(); i++)

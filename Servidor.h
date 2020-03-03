@@ -58,6 +58,8 @@ private:
      */
     static void * controladorCliente(void *obj);
     vector<int> clientes;
+
+    string getmsj(const char);
 };
 
 

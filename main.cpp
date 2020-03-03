@@ -25,6 +25,8 @@ void * serverRun(void *)
         pthread_create(&hiloServer,0,serverRun,NULL);
         pthread_detach(hiloServer);
 
+        Grafo grafo;
+        grafo.Dijkstra();
 
         while (1) {
             server->setMensaje(" - Introduzca el nodo de partida - ");
