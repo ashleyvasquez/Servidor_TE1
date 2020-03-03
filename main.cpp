@@ -2,21 +2,41 @@
 #include <QApplication>
 #include "Servidor.h"
 #include "Grafo.h"
-#include "Window.h"
 
 using namespace std;
-Window * window;
+Servidor *server;
 
+void * serverRun(void *)
+{
+    try{
+        server->run();
+    }catch(string ex)
+    {
+        cout << ex;
+    }
+
+    pthread_exit(NULL);
+}
 
     int main(int argc, char *argv[]) {
 
-        QApplication a(argc, argv);
-        window = new Window();
-        window->show();
+        server = new Servidor;
+        pthread_t hiloServer;
+        pthread_create(&hiloServer,0,serverRun,NULL);
+        pthread_detach(hiloServer);
 
+
+        while (1) {
+            server->setMensaje(" - Introduzca el nodo de partida - ");
+            string mensaje;
+            cin >> mensaje;
+
+        }
+
+        delete server;
+        return 0;
        // Grafo Ografo;
         //Ografo.Dijkstra();
 
 
-        return a.exec();
     }
